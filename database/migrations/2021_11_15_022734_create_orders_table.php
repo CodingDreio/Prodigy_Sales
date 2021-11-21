@@ -15,8 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id('order_id');
-            $table->integer('sales_report_id')->foreignId('sales_report_id')->constrained('sales_reports');
-            $table->integer('product_id')->foreignId('product_id')->constrained('products');
+            $table->integer('sales_report_id')->foreignId('sales_report_id')->constrained('sales_reports')->onUpdate('cascade');
+            $table->integer('product_id')->foreignId('product_id')->constrained('products')->onUpdate('cascade');
             $table->integer('quantity');
             $table->decimal('discount', 5, 2);
             $table->decimal('total_price', 8, 2);

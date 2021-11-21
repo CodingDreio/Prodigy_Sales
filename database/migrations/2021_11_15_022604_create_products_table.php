@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id('product_id');
-            $table->integer('category_id')->foreignId('category_id')->constrained('categories');
+            $table->integer('category_id')->foreignId('category_id')->constrained('categories')->onUpdate('cascade');
             $table->string('product_name',30);
             $table->decimal('price',6,2);
             $table->integer('quantity');

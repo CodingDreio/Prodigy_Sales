@@ -15,9 +15,9 @@ class CreateSupplyReportsTable extends Migration
     {
         Schema::create('supply_reports', function (Blueprint $table) {
             $table->id('supply_report_id');
-            $table->integer('emp_id')->foreignId('emp_id')->constrained('employees');
-            $table->integer('product_id')->foreignId('product_id')->constrained('products');
-            $table->integer('supplier_id')->foreignId('supplier_id')->constrained('suppliers');
+            $table->integer('emp_id')->foreignId('emp_id')->constrained('employees')->onUpdate('cascade');
+            $table->integer('product_id')->foreignId('product_id')->constrained('products')->onUpdate('cascade');
+            $table->integer('supplier_id')->foreignId('supplier_id')->constrained('suppliers')->onUpdate('cascade');
             $table->integer('quantity');
             $table->integer('amount');
             $table->string('type', 30);
